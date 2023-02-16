@@ -1,22 +1,17 @@
-
-// Login
-// Sätt en cookie
-
-// Registrering
-
-//CRUD Friends -U
-// Skyddad route, måste vara autentiserad (middleware check cookie).
-
 const express = require('express');
 const server = express();
 const cors = require('cors');
 const {users} = require('../database');
+const { friendRoute } = require('./routes/friendRoute');
 
 // express.json() gör samma sak som vi gjorde i våran egna middleware.
 server.use(express.json());
 server.use(cors());
 
+server.use('/friends',friendRoute);
+
 server.post('/register', (req, res) => {
+    req.body.friends = [];
     users.push(req.body);
     res.status(201).send('Added user');
 })
@@ -33,7 +28,6 @@ server.post('/login', (req, res) => {
 
     res.status(401).send('Invalid username/password');
 })
-
 
 
 server.listen(5050);
