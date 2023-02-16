@@ -9,13 +9,21 @@ form.addEventListener('submit', async (e) => {
     const username = usernameInput.value;
     const password = passwordInput.value;
     
-    const response = await fetch('http://localhost:5050/login', {
+    // Responsen innehåller information om hela respons objektet, såsom headers, statusKod osv...
+    const response = await fetch('http://localhost:5050/authentication/login', {
         method: 'POST',
         body: JSON.stringify({username, password}),
         headers: {
             'Content-Type': 'application/json'
-        }
+        },
+        credentials: 'include'
     });
-    // console.log(response.statusText);
+
+
+    // Om vi vill åt en respons body ska vi resolva den genom att anropa .text() på responsen, om responsen innehåller en text. 
+    // Om responsen skickar json, använd istället
+    const data = await response.text();
+    console.log(data);
+
     h2.textContent = response.statusText;
 })

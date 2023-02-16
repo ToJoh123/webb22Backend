@@ -8,7 +8,7 @@ form.addEventListener('submit', async (e) => {
     const username = usernameInput.value;
     const password = passwordInput.value;
     
-    const response = await fetch('http://localhost:5050/register', {
+    const response = await fetch('http://localhost:5050/authentication/register', {
         method: 'POST',
         body: JSON.stringify({username, password}),
         headers: {
