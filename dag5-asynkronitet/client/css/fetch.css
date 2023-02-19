@@ -4,4 +4,5 @@ pre{
 
 pre code.hljs{
     display: inline-block;
+    white-space: pre;
 }
