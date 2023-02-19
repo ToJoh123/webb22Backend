@@ -1,12 +1,12 @@
 import { getTimestamp } from "../helpers/getTimestamp.js";
 
-const body = document.querySelector('body');
+const log = document.querySelector('#log');
 
 export async function synchronousFetch(){
         // Skapar ett nytt <p> element, med en text och lägger in det på sidan.
         const firstP = document.createElement('p');
         firstP.textContent = `[${getTimestamp()}] Skickar request...`;
-        body.appendChild(firstP);
+        log.appendChild(firstP);
     
         /**
          * Här använder vi fetch på ett synkront sätt. Fetch är asynkront, men genom att lägga keywordet "await" innan vi kallar på den, säger vi till JS att vänta på att den blir klar..
@@ -20,7 +20,7 @@ export async function synchronousFetch(){
         // Lägg märket till att responsen här INTE är ett promise, eftersom vi har väntat på att responsen kommer tillbaka.
         const secondP = document.createElement('p');
         secondP.innerHTML = `[${getTimestamp()}] Min uppgift är att visa dig svaret vi fick av requesten. Eftersom att "await" använts, var jag tvungen att vänta. <br><b> Varsågod: ${response}</b>`;
-        body.appendChild(secondP);
+        log.appendChild(secondP);
     
 
         /**
@@ -30,5 +30,5 @@ export async function synchronousFetch(){
          */
         const thirdP = document.createElement('p');
         thirdP.innerHTML = `[${getTimestamp()}] Min uppgift var att skriva hej. Eftersom att "await" använts, var jag tvungen att vänta. <br><b> Hej</b>`;
-        body.appendChild(thirdP)
+        log.appendChild(thirdP)
 }
