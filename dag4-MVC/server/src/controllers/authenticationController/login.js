@@ -9,7 +9,6 @@ exports.login = function login(req, res) {
         res.cookie('authToken', 'super-secret-auth-key', {
             maxAge: 360000,
             sameSite: 'none',
-            secure: true,
             httpOnly: true
         });       
         res.status(200).send('Good login');
