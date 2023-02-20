@@ -6,6 +6,7 @@ server.use(cors());
 
 
 server.get('/', (req, res) => {
+    // Väntar i 5 sekunder, och skickar sedan en respons.
     setTimeout(() => {
         res.send('Here is your response!');
     }, 5000);

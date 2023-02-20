@@ -1,3 +1,4 @@
+debugger;
 const button = document.querySelector('button');
 
 //Demonstrerar event-driven architecture.
