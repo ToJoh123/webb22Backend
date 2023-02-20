@@ -1,4 +1,4 @@
-const { users } = require("../../database");
+const { users } = require("../../../database");
 
 exports.register = function register(req, res) {
     req.body.friends = [];

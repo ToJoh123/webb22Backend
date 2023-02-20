@@ -1,4 +1,4 @@
-const { users } = require("../../database");
+const { users } = require("../../../database");
 
 exports.postFriend = function postFriend(req, res){
     const {username, friend} = req.body;

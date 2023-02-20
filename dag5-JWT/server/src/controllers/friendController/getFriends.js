@@ -1,8 +1,7 @@
-const { users } = require("../../database");
+const { users } = require("../../../database");
 
 exports.getFriends = function getFriends(req, res) {
-    console.log(req.user);
-    const {username} = req.user;
+    const {username} = req.query;
     const foundUser = users.find(currentUser => currentUser.username === username);
 
     if (!foundUser) {
