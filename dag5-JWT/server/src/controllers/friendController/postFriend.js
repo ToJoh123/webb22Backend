@@ -1,7 +1,9 @@
 const { users } = require("../../../database");
 
 exports.postFriend = function postFriend(req, res){
-    const {username, friend} = req.body;
+    // Hämtar användarnamnet från loggedInUser objektet som ligger i vår request.
+    const {username} = req.loggedInUser;
+    const {friend} = req.body;
 
     const userIndex = users.findIndex(currentUser => currentUser.username === username);
 
