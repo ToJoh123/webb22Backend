@@ -1,7 +1,8 @@
 const { users } = require("../../../database");
 
 exports.getFriends = function getFriends(req, res) {
-    const {username} = req.query;
+    // Hämtar användarnamnet från loggedInUser objektet som ligger i vår request.
+    const {username} = req.loggedInUser;
     const foundUser = users.find(currentUser => currentUser.username === username);
 
     if (!foundUser) {
